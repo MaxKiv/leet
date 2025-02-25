@@ -1,8 +1,6 @@
-#include "53.maximum-subarray.c"
+#include "209.minimum-size-subarray-sum.c"
 #include <assert.h>
 #include <stdio.h>
-
-int maxSubArray(int *nums, int numsSize);
 
 void printArray(int *nums, int numsSize) {
   for (int i = 0; i < numsSize; ++i) {
@@ -12,9 +10,10 @@ void printArray(int *nums, int numsSize) {
 }
 
 int main() {
-  int input[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-  int answer = 6;
-  int output = maxSubArray(input, sizeof(input) / sizeof(input[0]));
+  int input[] = {1, 2, 3, 4, 5};
+  int target = 11;
+  int answer = 3;
+  int output = minSubArrayLen(target, input, sizeof(input) / sizeof(input[0]));
 
   printf("Testing: ");
   printArray(input, sizeof(input) / sizeof(input[0]));
