@@ -1,16 +1,18 @@
 import importlib.util
 
-spec = importlib.util.spec_from_file_location(
-    "maximum_subarray", "53.maximum-subarray.py"
-)
-maximum_subarray = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(maximum_subarray)
+spec = importlib.util.spec_from_file_location("leet", "code/1.two-sum.py")
+leet = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(leet)
 
 if __name__ == "__main__":
-    sol = maximum_subarray.Solution()
-    input = [-1]
-    output = sol.maxSubArray(input)
-    answer = -1
+    sol = leet.Solution()
+
+    # [2,7,11,15]↩ 9↩ [3,2,4]↩ 6↩ [3,3]↩ 6
+
+    input = [1, 3, 4, 2]
+    target = 6
+    output = sol.twoSum(input, target)
+    answer = [2, 3]
 
     print(f"input: {input}")
     print(f"output: {output}")
