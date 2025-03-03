@@ -49,11 +49,12 @@ class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         # nums.sort()
 
-        dictionary = {val: idx for (idx, val) in enumerate(nums)}
-        print(dictionary)
+        seen = {}
 
-        for idx, el in enumerate(nums):
-            item = dictionary.get(target - el)
-            if item and item != idx:
-                print(f"found {target - el} in dictionary at nums idx {target - el}")
-                return [idx, item]
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], i]
+            seen[num] = i
+
+        return []
