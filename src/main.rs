@@ -1,17 +1,25 @@
 // Hacking around the janky directory setup, its like c!
-include!("../code/53.maximum-subarray.rs");
+include!("../code/1.two-sum.rs");
 
 pub struct Solution;
 
+// [2,7,11,15]
+// 9
+// [3,2,4]
+// 6
+// [3,3]
+// 6
+
 fn main() {
-    let nums: Vec<i32> = vec![-2, 1, -3, 4, -1, 2, 1, -5, 4];
-    let output = Solution::max_sub_array(nums.clone());
-    let answer = 6;
+    let nums: Vec<i32> = vec![2, 7, 11, 15];
+    let target = 9;
+    let output = Solution::two_sum(nums.clone(), target);
+    let answer: Vec<i32> = vec![0, 1];
 
     println!("testing {:?}", nums);
     assert_eq!(
         output, answer,
-        "{:?} yields {output} but should return {answer}",
-        nums
+        "{:?} yields {:?} but should return {:?}",
+        output, answer, nums
     );
 }
