@@ -1,7 +1,16 @@
-#include "53.maximum-subarray.cpp"
-#include <format>
+#include "1.two-sum.cpp"
 #include <iostream>
 
+using std::ostream;
+// Overload << for vector
+template <typename S>
+ostream &operator<<(ostream &os, const vector<S> &vector) {
+
+  // Printing all the elements using <<
+  for (auto i : vector)
+    os << i << " ";
+  return os;
+}
 template <typename T> void prettyPrint(std::vector<T> input) {
   for (auto x : input) {
     printf("%d ", x);
@@ -11,14 +20,12 @@ template <typename T> void prettyPrint(std::vector<T> input) {
 
 int main() {
 
-  std::vector<int> input = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-
-  int answer = 6;
+  std::vector<int> input = {1, 3, 4, 2};
+  int target = 9;
+  std::vector<int> answer = {2, 3};
   Solution sol;
-  int output = sol.maxSubArray(input);
+  auto output = sol.twoSum(input, target);
 
-  printf("using input: ");
-  prettyPrint(input);
-  printf("should give %d\n", answer);
-  printf("but gives %d\n", output);
+  std::cout << "using input: " << input << "\nshould give " << answer
+            << "\nbut yields " << output;
 }
