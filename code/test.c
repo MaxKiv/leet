@@ -1,4 +1,4 @@
-#include "209.minimum-size-subarray-sum.c"
+#include "977.squares-of-a-sorted-array.c"
 #include <assert.h>
 #include <stdio.h>
 
@@ -10,15 +10,20 @@ void printArray(int *nums, int numsSize) {
 }
 
 int main() {
-  int input[] = {1, 2, 3, 4, 5};
-  int target = 11;
-  int answer = 3;
-  int output = minSubArrayLen(target, input, sizeof(input) / sizeof(input[0]));
+  int input[] = {-4, -1, 0, 3, 10};
+  int returnsize = 0;
+  int *output = sortedSquares(input, sizeof(input) / sizeof(int), &returnsize);
+  int answer[] = {0, 1, 9, 16, 100};
 
   printf("Testing: ");
   printArray(input, sizeof(input) / sizeof(input[0]));
-  printf("Should yield %d\n", answer);
-  printf("result: %d\n", output);
+  // printf("Should yield %d\n", answer);
+  printf("Should yield ");
+  printArray(answer, sizeof(answer) / sizeof(answer[0]));
+  printf("\n");
+  printf("result :");
+  printArray(output, returnsize);
+  // printf("result: %d\n", output);
   fflush(stdout);
 
   assert(answer == output);
